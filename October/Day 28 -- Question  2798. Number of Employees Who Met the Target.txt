@@ -29,6 +29,7 @@ There are 0 employees who met the target.
 
 ____________________________Solution_____________________________
 
+
  int numberOfEmployeesWhoMetTarget(vector<int>& hours, int target) {
         int count  = 0;
 
