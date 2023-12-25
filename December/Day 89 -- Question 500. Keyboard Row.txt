@@ -1,0 +1,48 @@
+Given an array of strings words, return the words that can be typed using letters of the alphabet on only one row of American keyboard like the image below.
+
+In the American keyboard:
+
+    the first row consists of the characters "qwertyuiop",
+    the second row consists of the characters "asdfghjkl", and
+    the third row consists of the characters "zxcvbnm".
+
+ 
+
+Example 1:
+
+Input: words = ["Hello","Alaska","Dad","Peace"]
+Output: ["Alaska","Dad"]
+
+Example 2:
+
+Input: words = ["omk"]
+Output: []
+
+Example 3:
+
+Input: words = ["adsdf","sfd"]
+Output: ["adsdf","sfd"]
+
+____________________________Solution______________________________
+class Solution {
+public:
+    vector<string> findWords(vector<string>& words) {
+     unordered_set<char> set1{'q','w','e','r','t','y','u','i','o','p'};
+        unordered_set<char> set2{'a','s','d','f','g','h','j','j','k','l'};
+     unordered_set<char> set3{'z','x','c','v','b','n','m'};
+     vector<string> ans;
+
+    for(auto i:words){
+        int length = i.length();
+                int a = 0 , b = 0, c = 0;
+            for(auto j :i){
+                j = tolower(j);
+                if(set1.count(j))a++;
+                if(set2.count(j))b++;
+                if(set3.count(j))c++;
+                if(a == length || b== length || c== length)ans.push_back(i);
+            }
+    }
+    return ans;
+    }
+};
